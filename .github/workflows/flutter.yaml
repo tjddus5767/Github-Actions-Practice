@@ -15,7 +15,7 @@ on:
 # 하나의 작업을 정의 (여기서는 'build' 작업)
 jobs:
   build:
-    # 이 작업이 실행될 운영체제를 정의 (Ubuntu 최신 버전)
+    # 이 작업이 실행될 운영체제를 정의 (Ubuntu 최신 버전)dd
     runs-on: ubuntu-latest
 
     steps:
