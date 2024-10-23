@@ -1,0 +1,48 @@
+# 워크플로우 이름 정의 (GitHub Actions 대시보드에서 표시)
+name: Flutter CI
+
+# 워크플로우가 언제 실행될지 정의하는 부분
+on:
+  # main 브랜치에 푸시될 때 워크플로우 실행
+  push:
+    branches:
+      - main
+  # main 브랜치로 풀 리퀘스트가 생성될 때 워크플로우 실행
+  pull_request:
+    branches:
+      - main
+
+# 하나의 작업을 정의 (여기서는 'build' 작업)
+jobs:
+  build:
+    # 이 작업이 실행될 운영체제를 정의 (Ubuntu 최신 버전)
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1단계: 소스 코드 체크아웃
+      # GitHub Actions가 소스 코드를 받아오기 위한 단계
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 2단계: Flutter SDK 설치
+      # Flutter를 사용할 수 있도록 SDK를 설치하는 단계
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          # 설치할 Flutter 버전 지정
+          flutter-version: "3.0.0"
+
+      # 3단계: 의존성 설치
+      # pubspec.yaml 파일에 정의된 의존성을 설치하는 단계
+      - name: Install dependencies
+        run: flutter pub get
+
+      # 4단계: 테스트 실행
+      # Flutter 프로젝트 내의 테스트 코드를 실행하는 단계
+      - name: Run tests
+        run: flutter test
+
+      # 5단계: APK 빌드
+      # 릴리즈 모드로 APK 파일을 빌드하는 단계 (앱을 배포 가능한 상태로 만듦)
+      - name: Build APK
+        run: flutter build apk --release
