@@ -10,9 +10,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  int counter = 0; // counter를 클래스 멤버 변수로 선언하여 상태 유지
+
   @override
   Widget build(BuildContext context) {
-    int counter = 0;
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -26,7 +27,7 @@ class _MyAppState extends State<MyApp> {
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    counter++;
+                    counter++; // 버튼 클릭 시 counter 증가
                   });
                 },
                 child: Text('카운터 증가'),
