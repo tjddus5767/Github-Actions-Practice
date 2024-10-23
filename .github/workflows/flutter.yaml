@@ -6,11 +6,11 @@ on:
   # main 브랜치에 푸시될 때 워크플로우 실행
   push:
     branches:
-      - main
+      - master
   # main 브랜치로 풀 리퀘스트가 생성될 때 워크플로우 실행
   pull_request:
     branches:
-      - main
+      - master
 
 # 하나의 작업을 정의 (여기서는 'build' 작업)
 jobs:
@@ -30,7 +30,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           # 설치할 Flutter 버전 지정
-          flutter-version: "3.0.0"
+          flutter-version: '3.13.0'  # Flutter SDK 버전 업데이트
 
       # 3단계: 의존성 설치
       # pubspec.yaml 파일에 정의된 의존성을 설치하는 단계
