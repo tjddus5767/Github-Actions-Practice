@@ -30,7 +30,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           # 설치할 Flutter 버전 지정
-          flutter-version: '3.10.0'  # Flutter SDK 버전 업데이트
+          flutter-version: '3.13.0'  # Flutter SDK 버전 업데이트
 
       # 3단계: 의존성 설치
       # pubspec.yaml 파일에 정의된 의존성을 설치하는 단계
